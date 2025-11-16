@@ -17,13 +17,14 @@ def predict():
     if request.method=='POST':
         Temprature=float(request.form.get('Tempearature'))
         Ws=float(request.form.get('Ws'))
+        RH=float(request.form.get('RH'))
         Rain=float(request.form.get('Rain'))
         FFMC=float(request.form.get('FFMC'))
         DMC=float(request.form.get('DMC'))
         ISI=float(request.form.get('ISI'))
         Classes=float(request.form.get('Classes'))
-        Region=float(request.form.get('Classes'))
-        new_data=standard_scalar.transform([Temprature, Ws,Rain,FFMC,DMC,ISI,Classes,Region])
+        Region=float(request.form.get('Region'))
+        new_data=standard_scalar.transform([[Temprature,RH,Ws,Rain,FFMC,DMC,ISI,Classes,Region]])
         result=ridge_model.predict(new_data)
         return render_template('home.html',results=result[0])
     else:
