@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fire Weather Index Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .container {
+            width: 400px;
+            margin: auto;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .result-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🔥 Fire Weather Index Prediction</h2>
+
+    <form action="/predict" method="POST">
+
+        <input type="text" name="Tempearature" placeholder="Temperature" required>
+
+        <input type="text" name="Ws" placeholder="Wind Speed" required>
+
+        <input type="text" name="Rain" placeholder="Rain" required>
+
+        <input type="text" name="FFMC" placeholder="FFMC" required>
+
+        <input type="text" name="DMC" placeholder="DMC" required>
+
+        <input type="text" name="ISI" placeholder="ISI" required>
+
+        <input type="text" name="Classes" placeholder="Classes" required>
+
+        <input type="text" name="Region" placeholder="Region" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if results %}
+    <div class="result-box">
+        <h3>Predicted Fire Weather Index:</h3>
+        <p><strong>{{ results }}</strong></p>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
