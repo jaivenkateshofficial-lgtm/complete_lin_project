@@ -32,3 +32,6 @@ def predict():
 
 if __name__=='__main__':
     app.run(host='0.0.0.0')
+
+
+# It is ready to diploy but I don't have the aws account
